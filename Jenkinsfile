@@ -1,6 +1,6 @@
 pipeline {
 
-    agent { label 'AR-DEV-JNODE-1' }
+    agent { label 'principal' }
 
     environment{
 
