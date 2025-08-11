@@ -4,8 +4,8 @@ pipeline {
 
     environment{
 
-        TeamDevExePath = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7SIGA\\TeamDev.msbuild"
-        GXServerURL = "https://gxserver18.accionpoint.com/"
+        TeamDevExePath = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7SIGA\\TeamDev.exe"
+        GXServerURL = "https://gxserver18.accionpoint.com"
         KBName = "SigaV5"
         KBVersion = "SigaV5"
         GXServerUser = "local\\sa_jenkins_genexus"
