@@ -6,8 +6,8 @@ pipeline {
 
         TeamDevExePath = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7SIGA\\TeamDev.msbuild"
         GXServerURL = "https://gxserver18.accionpoint.com/"
-        KBName = "SigaV7"
-        KBVersion = "SigaV7"
+        KBName = "SigaV5"
+        KBVersion = "SigaV5"
         GXServerUser = "local\\sa_jenkins_genexus"
         GXServerPassword = "567NTb0L4L4wjK4hZkAl"
         DateFrom = "2025-08-08T09:00:00"
