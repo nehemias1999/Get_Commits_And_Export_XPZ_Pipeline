@@ -1,6 +1,6 @@
 pipeline {
 
-    agent { label 'principal' }
+    agent { label 'Any' }
 
     environment{
 
