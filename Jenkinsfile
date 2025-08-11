@@ -27,7 +27,7 @@ pipeline {
                     bat("echo. > ${env.ResultsXMLFilePath}")
                     
                     bat"""
-                        "${env.TeamDevExePath}" history /s:${env.GXServerURL} /kb:${env.KBName} /ServerKbVersion:${env.KBVersion} /u:${env.GXServerUser} /p:${env.GXServerPassword} /from:${env.DateFrom} /to:${env.DateTo} -x >> ${env.ResultsXMLFilePath} 
+                        "${env.TeamDevExePath}" history /s:${env.GXServerURL} /kb:${env.KBName} /ServerKbVersion:${env.KBVersion} /u:local\\sa_jenkins_genexus /p:567NTb0L4L4wjK4hZkAl /from:${env.DateFrom} /to:${env.DateTo} -x >> ${env.ResultsXMLFilePath} 
                     """
                 }
 
