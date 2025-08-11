@@ -4,7 +4,7 @@ pipeline {
 
     environment{
 
-        TeamDevExePath = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7SIGA\\TeamDev.exe"
+        TeamDevExePath = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7\\TeamDev.exe"
         GXServerURL = "https://gxserver18.accionpoint.com"
         KBName = "SigaV5"
         KBVersion = "SigaV5"
