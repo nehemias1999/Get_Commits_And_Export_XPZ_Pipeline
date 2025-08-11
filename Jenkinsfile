@@ -21,10 +21,42 @@ pipeline {
             steps {
 
                 script {
+
                     bat("echo. > ${env.ResultsXMLFilePath}")
+                    
                     bat"""
                         "${env.TeamDevExePath}" history /s:${env.GXServerURL} /kb:${env.KBName} /ServerKbVersion:${env.KBVersion} /u:${env.User} /p:${env.Password} /from:${env.DateFrom} /to:${env.DateTo} -x >> ${env.ResultsXMLFilePath} 
                     """
+                }
+
+            }
+
+        }
+
+        stage('Procesar archivo XML para obtener objetos modificados de Commit') {
+
+            steps {
+
+                script {
+
+                    bat("echo. > ${env.ResultsXMLFilePath}")
+
+                }
+
+            }
+
+        }
+
+        stage('Exportar objetos en archivo XPZ') {
+
+            steps {
+
+                script {
+
+                    bat("echo. > ${env.ResultsXMLFilePath}")
+
+                    // <Export File="$(ExportFileName)" Objects="$(ObjectList)" DependencyType="$(depType)" ReferenceType="$(refType)" IncludeGXMessages="$(includeGXMsg)" IncludeUntranslatedMessages="$(includeUtMsg)" OnlyStructuresForTransactions="$(OnlyStructTrn)" />
+
                 }
 
             }
