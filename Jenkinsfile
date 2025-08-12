@@ -55,12 +55,12 @@ pipeline {
                     ''', returnStdout: true).trim()
 
                     // Mostrar el valor de la variable en los logs de Jenkins
-                    echo ${objectList}
+                    echo "Lista de objetos: ${objectList}"
 
-                    bat label: 'Exportar objetos en archivo XPZ', 
-                    script: """
-                        "${env.MSBuildPath}\\msbuild.exe" "msbuild\\Export.msbuild" /p:GX_PROGRAM_DIR=${env.GeneXus18U7Path} /t:Export /p:ExportFileName="${env.ExportFilePath}" /p:ObjectList="${objectList}"
-                    """
+                    // bat label: 'Exportar objetos en archivo XPZ', 
+                    // script: """
+                    //     "${env.MSBuildPath}\\msbuild.exe" "msbuild\\Export.msbuild" /p:GX_PROGRAM_DIR=${env.GeneXus18U7Path} /t:Export /p:ExportFileName="${env.ExportFilePath}" /p:ObjectList="${objectList}"
+                    // """
 
                 }
 
