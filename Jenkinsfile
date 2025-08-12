@@ -51,7 +51,7 @@ pipeline {
 
                     // Ejecutar el script de PowerShell y capturar el resultado en una variable
                     def objectList = bat(script: '''
-                        powershell -ExecutionPolicy Bypass -File "${env.ParseXMLFilePath}"
+                        powershell -ExecutionPolicy Bypass -File %env.ParseXMLFilePath%
                     ''', returnStdout: true).trim()
 
                     // Mostrar el valor de la variable en los logs de Jenkins
