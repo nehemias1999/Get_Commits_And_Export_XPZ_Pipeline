@@ -56,7 +56,6 @@ def main():
     object_list = parse_xml(xml_file_path)
     
     print(object_list)
-    # return object_list
 
 if __name__ == "__main__":
-    result = main()
+    main()
