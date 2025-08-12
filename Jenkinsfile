@@ -45,11 +45,13 @@ pipeline {
 
                 script {
 
-                    def objectList = bat(script:"""
-                            "${env.PythonEXEPath}" ${env.ParseXMLFilePath}
-                        """, returnStdout: true).trim()
+                    // Ejecutar el script de PowerShell y capturar el resultado en una variable
+                    def objectList = bat(script: '''
+                        powershell -ExecutionPolicy Bypass -File "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Get_Commits_And_Export_XPZ_Pipeline\\py\\script.ps1"
+                    ''', returnStdout: true).trim()
 
-                    echo "El valor de la variable objectList es: ${objectList}"
+                    // Mostrar el valor de la variable en los logs de Jenkins
+                    echo "El valor de la variable OBJECT_LIST es: ${objectList}"
 
                 }
 
