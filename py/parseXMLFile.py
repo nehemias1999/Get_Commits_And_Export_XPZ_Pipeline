@@ -36,6 +36,10 @@ def parse_xml(file_path):
             object_type = action.find('objectType').text
             object_name = action.find('objectName').text
 
+            # Reemplazar 'Web Panel' por 'Panel' en el objectType
+            if object_type == 'Web Panel':
+                object_type = 'Panel'
+
             # Agrupar objetos por tipo de objeto (objectType) solo si son modificados o agregados
             if action_type in ['Modified', 'Added']:
                 object_groups[object_type].add(object_name)  # Usamos un set para evitar duplicados
