@@ -10,7 +10,7 @@ pipeline {
         KBVersion = "SigaV5"
         GXServerUser = "local\\sa_jenkins_genexus"
         GXServerPassword = "567NTb0L4L4wjK4hZkAl"
-        DateFrom = "2025-08-11T09:00:00"
+        DateFrom = "2025-07-11T09:00:00"
         DateTo = "2025-08-11T18:00:00"
         ResultsXMLFilePath = "${WORKSPACE}\\ResultCommits.xml"
 
@@ -18,6 +18,9 @@ pipeline {
         ParseXMLFilePath = "${WORKSPACE}\\py\\parseXMLFile.py"
 
         GeneXus18U7Path = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7"
+        KBPath = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Get_Commits_And_Export_XPZ_Pipeline\\SigaV5"
+        KBVersion = "SigaV5"
+        KBEnvironment = "Development"
         MSBuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin"
         ExportFilePath = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Get_Commits_And_Export_XPZ_Pipeline\\ExportedObjects.xpz"
 
@@ -61,7 +64,7 @@ pipeline {
 
                     bat label: 'Exportar objetos en archivo XPZ', 
                     script: """
-                        "${env.MSBuildPath}\\msbuild.exe" "msbuild\\Export.msbuild" /p:GX_PROGRAM_DIR="${env.GeneXus18U7Path}" /t:Export /p:ExportFileName="${env.ExportFilePath}" /p:ObjectList="${objectList}"
+                        "${env.MSBuildPath}\\msbuild.exe" "msbuild\\Export.msbuild" /p:GX_PROGRAM_DIR="${env.GeneXus18U7Path}" /p:KBPath=${env.KBPath} /p:KBVersion=${env.KBVersion} /p:KBEnvironment=${env.KBEnvironment} /t:Export /p:ExportFileName="${env.ExportFilePath}" /p:ObjectList="${objectList}"
                     """
 
                 }

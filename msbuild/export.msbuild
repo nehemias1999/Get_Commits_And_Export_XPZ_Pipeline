@@ -7,6 +7,9 @@
 	<PropertyGroup>
 		<!--Input Parameters-->
 
+		<KBVersion></KBVersion>
+		<KBEnvironment></KBEnvironment>
+		<KBPath></KBPath>
 		<ExportFileName></ExportFileName>
 		<ObjectList></ObjectList>
 
@@ -28,8 +31,8 @@
 
 	<Target Name="Open" DependsOnTargets="OpenKB;SelectVersion;SelectEnvironment"/>
 
-	<Target Name="Export" >
-		<Export File="$(ExportFileName)" Objects="$(ObjectList)" />
+	<Target Name="Export" DependsOnTargets="Open">
+		<Export File="$(ExportFileName)" Objects="$(ObjectList)"/>
 	</Target>
 
 </Project>
