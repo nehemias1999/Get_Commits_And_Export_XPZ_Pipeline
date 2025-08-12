@@ -4,6 +4,14 @@
 	<Import Project="$(GX_PROGRAM_DIR)\Imports.targets" Condition = "$(TargetId) != 'STATICFRONTEND'"/>
 	<Import Project="$(GX_PROGRAM_DIR)\FrontendImports.targets" Condition = "$(TargetId) == 'STATICFRONTEND'"/>
 
+	<PropertyGroup>
+		<!--Input Parameters-->
+
+		<ExportFileName></ExportFileName>
+		<ObjectList></ObjectList>
+
+	</PropertyGroup>
+
 	<Target Name="SelectVersion" Condition="'$(KBVersion)'!=''" >
 		<SetActiveVersion VersionName="$(KBVersion)"  />
 	</Target>
