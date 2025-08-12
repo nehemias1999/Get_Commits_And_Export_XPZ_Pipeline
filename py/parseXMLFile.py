@@ -1,6 +1,21 @@
 import xml.etree.ElementTree as ET
 
+def clean_xml(file_path):
+    """ Limpia el archivo XML de caracteres no deseados antes de la declaración XML """
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    
+    # Eliminar caracteres no visibles antes de la declaración XML
+    content = content.lstrip()  # Elimina los espacios en blanco al principio
+    
+    # Escribir el contenido limpio de vuelta en el archivo temporal
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
+
 def parse_xml(file_path):
+    # Limpiar el archivo XML de caracteres no deseados antes de procesarlo
+    clean_xml(file_path)
+    
     # Parsear el archivo XML
     tree = ET.parse(file_path)
     root = tree.getroot()
