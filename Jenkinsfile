@@ -13,7 +13,10 @@ pipeline {
         DateFrom = "2025-08-11T09:00:00"
         DateTo = "2025-08-11T18:00:00"
         ResultsXMLFilePath = "${WORKSPACE}\\ResultCommits.xml"
-    
+
+        PythonEXEPath = "C:\\Python\\Python310\\python.exe"
+        ParseXMLFilePath = "${WORKSPACE}\\ParseXMLFile.py"
+
     }
 
     stages {
@@ -42,7 +45,11 @@ pipeline {
 
                 script {
 
-                    bat("echo. > ${env.ResultsXMLFilePath}")
+                    def objectList = bat(script:"""
+                            "${env.PythonEXEPath}" ${env.ParseXMLFilePath}
+                        """, returnStdout: true).trim()
+
+                    bat("echo. > ${objectList}")
 
                 }
 
