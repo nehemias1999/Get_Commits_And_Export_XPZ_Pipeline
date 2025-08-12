@@ -1,14 +1,32 @@
 import xml.etree.ElementTree as ET
-from collections import defaultdict
+
+def clean_xml(file_path):
+    """Limpia el archivo XML de espacios y caracteres no visibles antes de la declaración XML."""
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    
+    # Eliminar cualquier espacio en blanco o salto de línea antes de la declaración XML
+    content = content.lstrip()  # Eliminar espacios al inicio del archivo
+
+    # Asegurarse de que la declaración XML esté en la primera línea
+    if not content.startswith('<?xml'):
+        raise ValueError("El archivo XML no comienza con la declaración '<?xml ...'")
+
+    # Escribir el contenido limpio en un archivo temporal
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
 
 def parse_xml(file_path):
+    # Limpiar el archivo XML antes de procesarlo
+    clean_xml(file_path)
+
     # Parsear el archivo XML
     tree = ET.parse(file_path)
     root = tree.getroot()
-    
+
     # Usamos un defaultdict para agrupar objetos por type
     object_groups = defaultdict(list)
-    
+
     # Recorrer cada logentry en el XML
     for logentry in root.findall('logentry'):
         # Recorrer todas las acciones (action) dentro de cada logentry
@@ -16,16 +34,16 @@ def parse_xml(file_path):
             action_type = action.get('type')
             object_type = action.find('objectType').text
             object_name = action.find('objectName').text
-            
+
             # Agrupar objetos por tipo de objeto (objectType) solo si son modificados o agregados
             if action_type in ['Modified', 'Added']:
                 object_groups[object_type].append(object_name)
-    
+
     # Crear el formato requerido
     formatted_objects = []
     for object_type, object_names in object_groups.items():
         formatted_objects.append(f"{object_type}:{','.join(object_names)}")
-    
+
     # Unir todas las partes con ";"
     return ';'.join(formatted_objects)
 
@@ -40,3 +58,4 @@ def main():
 
 if __name__ == "__main__":
     result = main()
+    print(result)  # Esto mostrará la lista de objetos en el formato requerido
