@@ -17,6 +17,9 @@ pipeline {
         PythonEXEPath = "C:\\Users\\nsalazar\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
         ParseXMLFilePath = "${WORKSPACE}\\py\\parseXMLFile.py"
 
+        MSBuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin"
+        ExportFilePath = "${WORKSPACE}\\ExportedObjects.xpz"
+
     }
 
     stages {
@@ -53,23 +56,10 @@ pipeline {
                     // Mostrar el valor de la variable en los logs de Jenkins
                     echo "El valor de la variable OBJECT_LIST es: ${objectList}"
 
-                }
-
-            }
-
-        }
-
-        stage('Exportar objetos en archivo XPZ') {
-
-            steps {
-
-                script {
-
-                    bat("echo. > ${env.ResultsXMLFilePath}")
-
-                    // bat"""
-                    //     "${env.TeamDevExePath}" history /s:${env.GXServerURL} /kb:${env.KBName} /ServerKbVersion:${env.KBVersion} /u:${env.GXServerUser} /p:${env.GXServerPassword} /from:${env.DateFrom} /to:${env.DateTo} -x >> ${env.ResultsXMLFilePath} 
-                    // """
+                    bat label: 'Exportar objetos en archivo XPZ', 
+                    script: """
+                        "${env.MSBuildPath}\\msbuild.exe" "msbuild\\Export.msbuild" /t:Export "${env.ExportFilePath}" "${objectList}"
+                    """
 
                 }
 
