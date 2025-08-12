@@ -59,7 +59,8 @@ def main():
     # Parsear el XML y obtener la lista formateada
     object_list = parse_xml(xml_file_path)
     
-    print(object_list)
+    return object_list
 
 if __name__ == "__main__":
-    main()
+    result = main()
+    print(result) 
