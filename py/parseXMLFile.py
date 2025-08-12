@@ -63,4 +63,4 @@ def main():
 
 if __name__ == "__main__":
     result = main()
-    print(result) 
+    print(f"Lista de objetos: {result}")  # Solo imprime la lista de objetos sin otras informaciones
