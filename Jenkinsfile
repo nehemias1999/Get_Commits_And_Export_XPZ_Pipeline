@@ -10,8 +10,8 @@ pipeline {
         KBVersion = "SigaV5"
         GXServerUser = "local\\sa_jenkins_genexus"
         GXServerPassword = "567NTb0L4L4wjK4hZkAl"
-        DateFrom = "2025-07-11T09:00:00"
-        DateTo = "2025-08-11T18:00:00"
+        DateFrom = "2025-08-12T09:00:00"
+        DateTo = "2025-08-12T18:00:00"
         ResultsXMLFilePath = "${WORKSPACE}\\ResultCommits.xml"
 
         PythonEXEPath = "C:\\Users\\nsalazar\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
@@ -61,10 +61,10 @@ pipeline {
                     // Mostrar el valor de la variable en los logs de Jenkins
                     echo "Lista de objetos: ${objectList}"
 
-                    bat label: 'Exportar objetos en archivo XPZ', 
-                    script: """
-                        "${env.MSBuildPath}\\msbuild.exe" "msbuild\\Export.msbuild" /p:GX_PROGRAM_DIR="${env.GeneXus18U7Path}" /p:KBPath=${env.KBPath} /p:KBVersion=${env.KBVersion} /p:KBEnvironment=${env.KBEnvironment} /t:Export /p:ExportFileName="${env.ExportFilePath}" /p:ObjectList="${objectList}"
-                    """
+                    // bat label: 'Exportar objetos en archivo XPZ', 
+                    // script: """
+                    //     "${env.MSBuildPath}\\msbuild.exe" "msbuild\\Export.msbuild" /p:GX_PROGRAM_DIR="${env.GeneXus18U7Path}" /p:KBPath=${env.KBPath} /p:KBVersion=${env.KBVersion} /p:KBEnvironment=${env.KBEnvironment} /t:Export /p:ExportFileName="${env.ExportFilePath}" /p:ObjectList="${objectList}"
+                    // """
 
                 }
 
