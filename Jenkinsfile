@@ -13,7 +13,7 @@ pipeline {
         DateFrom = "2025-08-01T09:00:00"
         DateTo = "2025-08-08T18:00:00"
         //ResultsXMLFilePath = "C:\\Users\\nsalazar\\Desktop\\ResultCommits.xml"
-        ResultsXMLFilePath = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace"
+        ResultsXMLFilePath = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Get_Commits_And_Export_XPZ_Pipeline"
     
     }
 
