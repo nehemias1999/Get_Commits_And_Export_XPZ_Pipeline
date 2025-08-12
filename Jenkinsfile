@@ -15,7 +15,7 @@ pipeline {
         ResultsXMLFilePath = "${WORKSPACE}\\ResultCommits.xml"
 
         PythonEXEPath = "C:\\Users\\nsalazar\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
-        ParseXMLFilePath = "${WORKSPACE}\\ParseXMLFile.py"
+        ParseXMLFilePath = "${WORKSPACE}\\parseXMLFile.py"
 
     }
 
