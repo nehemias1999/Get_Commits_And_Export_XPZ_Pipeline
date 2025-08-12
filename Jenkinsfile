@@ -52,7 +52,7 @@ pipeline {
                     // Ejecutar el script de PowerShell y capturar el resultado en una variable
                     def objectList = bat(script: """
                         python "${env.ParseXMLFilePath}"
-                    """, returnStdout: false).trim()
+                    """, returnStdout: true).trim()
 
                     objectList = objectList.split('\r?\n')[-1].trim()
 
