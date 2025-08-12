@@ -1,11 +1,12 @@
 import xml.etree.ElementTree as ET
+from collections import defaultdict  # Asegúrate de importar defaultdict
 
 def clean_xml(file_path):
     """Limpia el archivo XML de espacios y caracteres no visibles antes de la declaración XML."""
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
     
-    # Eliminar cualquier espacio en blanco o salto de línea antes de la declaración XML
+    # Eliminar cualquier espacio en blanco antes de la declaración XML
     content = content.lstrip()  # Eliminar espacios al inicio del archivo
 
     # Asegurarse de que la declaración XML esté en la primera línea
@@ -24,7 +25,7 @@ def parse_xml(file_path):
     tree = ET.parse(file_path)
     root = tree.getroot()
 
-    # Usamos un defaultdict para agrupar objetos por type
+    # Crear un defaultdict para agrupar objetos por type
     object_groups = defaultdict(list)
 
     # Recorrer cada logentry en el XML
