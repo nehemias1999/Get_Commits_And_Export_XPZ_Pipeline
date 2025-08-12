@@ -55,7 +55,7 @@ pipeline {
                     ''', returnStdout: true).trim()
 
                     // Mostrar el valor de la variable en los logs de Jenkins
-                    echo "El valor de la variable OBJECT_LIST es: ${objectList}"
+                    echo ${objectList}
 
                     bat label: 'Exportar objetos en archivo XPZ', 
                     script: """

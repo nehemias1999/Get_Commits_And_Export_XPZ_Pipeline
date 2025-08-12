@@ -25,7 +25,12 @@ foreach ($logentry in $xmlDoc.log.logentry) {
             $objectName = $action.objectName
 
             # Formatear el objeto como "Tipo/Nombre(Guid)"
-            $objectList += "$objectType/$objectName($objectGuid)"
+            $objectString = "$objectType/$objectName($objectGuid)"
+            
+            # Agregar el objeto solo si no está ya en la lista
+            if ($objectList -notcontains $objectString) {
+                $objectList += $objectString
+            }
         }
     }
 }
