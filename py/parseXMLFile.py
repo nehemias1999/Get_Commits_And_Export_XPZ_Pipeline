@@ -40,4 +40,3 @@ def main():
 
 if __name__ == "__main__":
     result = main()
-    print(result)  # Esto mostrará la lista de objetos en el formato requerido
