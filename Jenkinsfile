@@ -12,13 +12,14 @@ pipeline {
         GXServerPassword = "567NTb0L4L4wjK4hZkAl"
         DateFrom = "2025-08-01T09:00:00"
         DateTo = "2025-08-08T18:00:00"
-        ResultsXMLFilePath = "C:\\Users\\nsalazar\\Desktop\\ResultCommits.xml"
+        //ResultsXMLFilePath = "C:\\Users\\nsalazar\\Desktop\\ResultCommits.xml"
+        ResultsXMLFilePath = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace"
     
     }
 
     stages {
 
-        stage('OBTENIENDO COMMITS GXSERVER') {
+        stage('Obtener commits de la KB en un intervalo de tiempo') {
 
             steps {
 
@@ -29,6 +30,7 @@ pipeline {
                     bat"""
                         "${env.TeamDevExePath}" history /s:${env.GXServerURL} /kb:${env.KBName} /ServerKbVersion:${env.KBVersion} /u:${env.GXServerUser} /p:${env.GXServerPassword} /from:${env.DateFrom} /to:${env.DateTo} -x >> ${env.ResultsXMLFilePath} 
                     """
+
                 }
 
             }
@@ -57,7 +59,9 @@ pipeline {
 
                     bat("echo. > ${env.ResultsXMLFilePath}")
 
-                    // <Export File="$(ExportFileName)" Objects="$(ObjectList)" DependencyType="$(depType)" ReferenceType="$(refType)" IncludeGXMessages="$(includeGXMsg)" IncludeUntranslatedMessages="$(includeUtMsg)" OnlyStructuresForTransactions="$(OnlyStructTrn)" />
+                    bat"""
+                        "${env.TeamDevExePath}" history /s:${env.GXServerURL} /kb:${env.KBName} /ServerKbVersion:${env.KBVersion} /u:${env.GXServerUser} /p:${env.GXServerPassword} /from:${env.DateFrom} /to:${env.DateTo} -x >> ${env.ResultsXMLFilePath} 
+                    """
 
                 }
 
