@@ -17,6 +17,7 @@ pipeline {
         PythonEXEPath = "C:\\Users\\nsalazar\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
         ParseXMLFilePath = "${WORKSPACE}\\py\\parseXMLFile.py"
 
+        GeneXus18U7Path = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7"
         MSBuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin"
         ExportFilePath = "${WORKSPACE}\\ExportedObjects.xpz"
 
@@ -58,7 +59,7 @@ pipeline {
 
                     bat label: 'Exportar objetos en archivo XPZ', 
                     script: """
-                        "${env.MSBuildPath}\\msbuild.exe" "msbuild\\Export.msbuild" /t:Export "${env.ExportFilePath}" "${objectList}"
+                        "${env.MSBuildPath}\\msbuild.exe" "msbuild\\Export.msbuild" /p:GX_PROGRAM_DIR=${env.GeneXus18U7Path} /t:Export /p:ExportFileName="${env.ExportFilePath}" /p:ObjectList="${objectList}"
                     """
 
                 }
