@@ -15,7 +15,7 @@ pipeline {
         ResultsXMLFilePath = "${WORKSPACE}\\ResultCommits.xml"
 
         PythonEXEPath = "C:\\Users\\nsalazar\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
-        ParseXMLFilePath = "${WORKSPACE}\\bat\\parseXMLFile.bat"
+        ParseXMLFilePath = "${WORKSPACE}\\py\\parseXMLFile.py"
 
         GeneXus18U7Path = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7"
         MSBuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin"
