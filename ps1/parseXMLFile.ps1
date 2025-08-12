@@ -1,7 +1,16 @@
 # Ruta del archivo XML
 $xmlFilePath = "C:\ProgramData\Jenkins\.jenkins\workspace\Get_Commits_And_Export_XPZ_Pipeline\ResultCommits.xml"
 
-# Cargar el archivo XML
+# Leer el archivo XML y limpiarlo de cualquier espacio en blanco antes de la declaración XML
+$content = Get-Content -Path $xmlFilePath -Raw
+
+# Eliminar cualquier espacio en blanco antes de la declaración XML
+$content = $content.TrimStart()
+
+# Guardar el contenido limpio de nuevo en el archivo (esto podría sobrescribir el archivo original)
+Set-Content -Path $xmlFilePath -Value $content
+
+# Cargar el archivo XML limpio
 [xml]$xmlDoc = Get-Content -Path $xmlFilePath
 
 # Inicializar una lista para los objetos
