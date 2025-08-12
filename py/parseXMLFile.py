@@ -33,7 +33,8 @@ def parse_xml(file_path):
             
             # Filtrar solo objetos modificados o agregados
             if action_type in ['Modified', 'Added']:
-                objects.append(f"{object_type}/{object_name}({object_guid})")
+                # Asegurarse de que el objeto esté entre comillas para evitar errores de comando
+                objects.append(f'"{object_type}/{object_name}({object_guid})"')
 
     # Retornar los objetos como una cadena separada por punto y coma
     return ";".join(objects)
