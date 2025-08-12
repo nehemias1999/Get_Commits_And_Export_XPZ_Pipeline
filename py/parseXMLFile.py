@@ -25,7 +25,7 @@ def parse_xml(file_path):
 
 def main():
     # Ruta al archivo XML
-    xml_file_path = "C:\ProgramData\Jenkins\.jenkins\workspace\Get_Commits_And_Export_XPZ_Pipeline\ResultCommits.xml"
+    xml_file_path = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Get_Commits_And_Export_XPZ_Pipeline\\ResultCommits.xml"
     
     # Parsear el archivo XML y obtener la lista de objetos
     objects_list = parse_xml(xml_file_path)
