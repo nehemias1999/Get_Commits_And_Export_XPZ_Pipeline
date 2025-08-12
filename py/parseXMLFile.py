@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from collections import defaultdict  # Asegúrate de importar defaultdict
+from collections import defaultdict
 
 def clean_xml(file_path):
     """Limpia el archivo XML de espacios y caracteres no visibles antes de la declaración XML."""
@@ -25,8 +25,8 @@ def parse_xml(file_path):
     tree = ET.parse(file_path)
     root = tree.getroot()
 
-    # Crear un defaultdict para agrupar objetos por type
-    object_groups = defaultdict(list)
+    # Crear un defaultdict para agrupar objetos por type (usamos set para evitar duplicados)
+    object_groups = defaultdict(set)
 
     # Recorrer cada logentry en el XML
     for logentry in root.findall('logentry'):
@@ -38,7 +38,7 @@ def parse_xml(file_path):
 
             # Agrupar objetos por tipo de objeto (objectType) solo si son modificados o agregados
             if action_type in ['Modified', 'Added']:
-                object_groups[object_type].append(object_name)
+                object_groups[object_type].add(object_name)  # Usamos un set para evitar duplicados
 
     # Crear el formato requerido
     formatted_objects = []
@@ -59,4 +59,3 @@ def main():
 
 if __name__ == "__main__":
     result = main()
-    print(result)  # Esto mostrará la lista de objetos en el formato requerido
