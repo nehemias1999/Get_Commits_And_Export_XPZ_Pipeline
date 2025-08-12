@@ -19,7 +19,7 @@ pipeline {
 
         GeneXus18U7Path = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7"
         MSBuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin"
-        ExportFilePath = "${WORKSPACE}\\ExportedObjects.xpz"
+        ExportFilePath = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Get_Commits_And_Export_XPZ_Pipeline\\ExportedObjects.xpz"
 
     }
 
