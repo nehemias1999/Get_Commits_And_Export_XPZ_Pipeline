@@ -54,6 +54,8 @@ pipeline {
                         python "${env.ParseXMLFilePath}"
                     """, returnStdout: false).trim()
 
+                    objectList = objectList.split('\r?\n')[-1].trim()
+
                     // Mostrar el valor de la variable en los logs de Jenkins
                     echo "Lista de objetos: ${objectList}"
 
