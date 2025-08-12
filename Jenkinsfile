@@ -18,9 +18,8 @@ pipeline {
         ParseXMLFilePath = "${WORKSPACE}\\py\\parseXMLFile.py"
 
         GeneXus18U7Path = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7"
-        KBPath = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Get_Commits_And_Export_XPZ_Pipeline\\SigaV5"
-        KBVersion = "SigaV5"
-        KBEnvironment = "Development"
+        KBPath = "C:\\Models\\SigaV5"
+        KBEnvironment = "JavaAmbiente"
         MSBuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin"
         ExportFilePath = "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Get_Commits_And_Export_XPZ_Pipeline\\ExportedObjects.xpz"
 
