@@ -49,7 +49,7 @@ pipeline {
                             "${env.PythonEXEPath}" ${env.ParseXMLFilePath}
                         """, returnStdout: true).trim()
 
-                    bat("echo. > ${objectList}")
+                    echo "El valor de la variable OBJECT_LIST es: ${objectList}"
 
                 }
 
