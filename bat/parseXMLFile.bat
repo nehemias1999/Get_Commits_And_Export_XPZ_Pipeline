@@ -33,8 +33,5 @@ for /f "delims=" %%a in ('findstr /i "<action type=\"Modified\"\\|<action type=\
     )
 )
 
-:: Mostrar el valor de la lista de objetos
-echo Lista de objetos: %objectList%
-
 :: Retornar el valor final si lo deseas
 exit /b
