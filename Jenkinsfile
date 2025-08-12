@@ -15,7 +15,7 @@ pipeline {
         ResultsXMLFilePath = "${WORKSPACE}\\ResultCommits.xml"
 
         PythonEXEPath = "C:\\Users\\nsalazar\\AppData\\Local\\Programs\\Python\\Python312\\python.exe"
-        ParseXMLFilePath = "${WORKSPACE}\\py\\parseXMLFile.py"
+        ParseXMLFilePath = "${WORKSPACE}\\ps1\\parseXMLFile.ps1"
 
         GeneXus18U7Path = "C:\\Program Files (x86)\\GeneXus\\GeneXus18U7"
         MSBuildPath = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin"
@@ -51,7 +51,7 @@ pipeline {
 
                     // Ejecutar el script de PowerShell y capturar el resultado en una variable
                     def objectList = bat(script: '''
-                        powershell -ExecutionPolicy Bypass -File "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Get_Commits_And_Export_XPZ_Pipeline\\ps1\\parseXMLFile.ps1"
+                        powershell -ExecutionPolicy Bypass -File "${env.ParseXMLFilePath}"
                     ''', returnStdout: true).trim()
 
                     // Mostrar el valor de la variable en los logs de Jenkins

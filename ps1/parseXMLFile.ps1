@@ -38,8 +38,5 @@ foreach ($logentry in $xmlDoc.log.logentry) {
 # Unir los objetos en una cadena separada por punto y coma
 $objectListString = $objectList -join ";"
 
-# Mostrar el resultado (esto es lo que se puede usar en Jenkins)
-Write-Host "El valor de la variable OBJECT_LIST es: $objectListString"
-
 # Retornar el valor final si lo deseas
 return $objectListString
