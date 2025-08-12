@@ -14,7 +14,7 @@ pipeline {
         DateTo = "2025-08-11T18:00:00"
         ResultsXMLFilePath = "${WORKSPACE}\\ResultCommits.xml"
 
-        PythonEXEPath = "C:\\Windows\\Installer\\$PatchCache$\\Managed\\B247F6007DEDD87439DDB4794544ADEB\\3.13.150\\python.exe"
+        PythonEXEPath = "C:\\Users\\nsalazar\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
         ParseXMLFilePath = "${WORKSPACE}\\ParseXMLFile.py"
 
     }
